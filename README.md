@@ -10,7 +10,7 @@ In this paper, we propose rotating the ReLU activation to give an additional deg
 the rotation. This combination leads to implicit sparsification without the use of a regularizer. We show that this rotated ReLU (RReLU) activation improves 
 the representation capability of the parameters/filters in the network and eliminates those parameters/filters that are not crucial for the task, giving rise 
 to significant savings in memory and computation. While the state-of-the-art regularization-based Network-Slimming method achieves $32.33\%$ saving in memory 
-and $26.38\%$ saving in computation with ResNet-$164$, RReLU achieves a saving of $35.92\%$ in memory and $25.97\%$ in the computation with a better accuracy. 
+and $26.38\%$ saving in computation with ResNet-164, RReLU achieves a saving of $35.92\%$ in memory and $25.97\%$ in the computation with a better accuracy. 
 The savings in memory and computation further increase by $64.67\%$ and $52.96\%$, respectively, with the introduction of $L_1$ regularization to the RReLU slopes.
 We note that the slopes of the rotated ReLU activations act as coarse feature extractors and can eliminate unnecessary features before retraining. Our studies indicate 
 that features always choose to pass through a lesser number of filters. We demonstrate the results with popular datasets such as MNIST, CIFAR-10, CIFAR-100, SVHN,
