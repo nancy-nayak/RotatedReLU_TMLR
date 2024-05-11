@@ -21,7 +21,7 @@ structural pruning methods resulting in better sparsity. For the GELU-based mult
 with 6.32\% saving in both memory and computation.
 
 ## Installation 
-Install the required packages by running the following command (stay inside the directory codes_ICCV2023)
+Install the required packages by running the following command (stay inside the directory codes_TMLR2024)
 ``` bash
 conda env create -f rrelujan.yml
 ```
@@ -41,7 +41,7 @@ do
           --arch=$model\
           --dataset=CIFAR10 \
           --epoch=1200 \
-          --save-dir=resultsICCV/save_standard_$model
+          --save-dir=results/save_standard_$model
 done
 ```
 2. To train the ResNet20 architecture with ReLU and CIFAR100 dataset:
@@ -52,7 +52,7 @@ do
           --arch=$model\
           --dataset=CIFAR100 \
           --epoch=1200 \
-          --save-dir=resultsICCV/save_standard_$model
+          --save-dir=results/save_standard_$model
 done
 ```
 
@@ -64,7 +64,7 @@ do
           --arch=$model\
           --dataset=CIFAR10 \
           --epoch=1200 \
-          --save-dir=resultsICCV/save_rrelu_$model
+          --save-dir=results/save_rrelu_$model
 done
 ```
 4. To train the ResNet20 architecture with RReLU and CIFAR100 dataset:
@@ -75,11 +75,11 @@ do
           --arch=$model\
           --dataset=CIFAR100 \
           --epoch=1200 \
-          --save-dir=resultsICCV/save_rrelu_$model
+          --save-dir=results/save_rrelu_$model
 done
 ```
 5. To test the model and to find out how many filters are inactive and layerwise inactive filters for the ResNet20 architecture with RReLU and CIFAR10 dataset:
-Before testing, make sure that you have the fully trained model saved inside the directory ./pytorch_resnet_cifar10/resultsICCV/save_rrelu_resnet20_rotatedrelu_maam
+Before testing, make sure that you have the fully trained model saved inside the directory ./pytorch_resnet_cifar10/results/save_rrelu_resnet20_rotatedrelu_maam
 By changing the value of zeta, you can have different level of pruning. 
 Find a zeta that has no/negligible degradation in performance using validation set i.e. validation=1.
 ``` bash
@@ -87,12 +87,12 @@ for model in resnet20_rotatedrelu_maam
 do
 	python -u trainer_adv_Jan.py \
           --arch=$model -e \
-          --prune="./resultsICCV/save_rrelu_resnet20_rotatedrelu_maam/checkpoint_best.th" \
+          --prune="./results/save_rrelu_resnet20_rotatedrelu_maam/checkpoint_best.th" \
           --dataset=CIFAR10 \
           --zeta=0.1 \
           --validation=1 \
           --epoch=1200 \
-          --save-dir=resultsICCV/save_rrelu_eval_$model
+          --save-dir=results/save_rrelu_eval_$model
 done
 ```
 Then test using that zeta after using validation=0
@@ -101,12 +101,12 @@ for model in resnet20_rotatedrelu_maam
 do
 	python -u trainer_adv_Jan.py \
           --arch=$model -e \
-          --prune="./resultsICCV/save_rrelu_resnet20_rotatedrelu_maam/checkpoint_best.th" \
+          --prune="./results/save_rrelu_resnet20_rotatedrelu_maam/checkpoint_best.th" \
           --dataset=CIFAR10 \
           --zeta=0.1 \
           --validation=0 \
           --epoch=1200 \
-          --save-dir=resultsICCV/save_rrelu_eval_$model
+          --save-dir=results/save_rrelu_eval_$model
 done
 ```
 6. From the list of filters alive along the depth, you can calculate the number of parameters and FLOPs by running the following. Enter the list of alive
