@@ -1,0 +1,25 @@
+prune:  
+finetuning:  0
+CA:  
+dataset:  CIFAR10
+arch:  resnet56_rotatedrelu_maam
+sr:  False
+s:  0.0001
+gamma:  
+workers:  4
+epochs:  1200
+start_epoch:  0
+batch_size:  128
+advtest:  0
+lr:  0.1
+momentum:  0.9
+weight_decay:  0.0001
+print_freq:  50
+resume:  
+evaluate:  False
+half:  False
+warm_up:  False
+save_dir:  save_rrelu_1_resnet56_rotatedrelu_maam
+save_every:  10
+epsfgsm:  0.1
+epspgd:  0.031
