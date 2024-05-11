@@ -1,3 +1,5 @@
+We have use the following repo to study Rotated ReLU with WideResNets
+
 # Wide Residual Networks (WideResNets) in PyTorch
 WideResNets for CIFAR10/100 implemented in PyTorch. This implementation requires less GPU memory than what is required by the official Torch implementation: https://github.com/szagoruyko/wide-residual-networks.
 
